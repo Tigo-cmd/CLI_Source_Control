@@ -18,6 +18,8 @@ Welcome to CLSC, your command-line source control tool! CLSC is designed to simp
     **commit**: Creates a new commit with a descriptive message.
     **branch**: Manages branches, including creating, listing, switching, and merging.
     **log**: Shows the commit history of your repository.
+## Extra Feature:
+-- **Create files: CLSC creates test startup files, python packages, py functions etc...
 
 
 ## Getting Started:
