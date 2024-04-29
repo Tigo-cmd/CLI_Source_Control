@@ -27,6 +27,24 @@ Welcome to CLSC, your command-line source control tool! CLSC is designed to simp
 1. **Installation**:
 
    ```bash
-   $ git clone https://github.com/your-username/clsc.git
-   $ cd clsc
-   $ make install
+   $ git https://github.com/Tigo-cmd/CLI_Source_Control.git
+   $ cd CLI_Source_Control
+   $ Run the script install.sh with sudo privileges to install ClSC on your computer
+2. **Usage**:
+   ```bash
+   usage: SC [-h] [-t filename [filename ...]] [-t+ filename [filename ...]] [-a  [...]] [-c] [-p] [--version] [-v  | -s ]
+   options:
+     -h, --help            show this help message and exit
+     -t filename [filename ...], --touch filename [filename ...]
+                           creates files
+     -t+ filename [filename ...], --function filename [filename ...]
+                           creates files
+     -a  [ ...], --add  [ ...]
+                           add changes to the git
+     -c, --commit          commits changes to the git
+     -p , --push           Update remote refs along with associated objects
+     --version             show program's version number and exit
+     -v , --verbose        displays more message
+     -s , -silence         displays limited messages
+
+
