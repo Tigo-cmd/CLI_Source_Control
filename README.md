@@ -1,6 +1,7 @@
-# Command-Line Source Control (CLSC)
+**# Command-Line Source Control (CLSC)
 Welcome to CLSC, your command-line source control tool! CLSC is designed to simplify the management of your project's source code directly from your terminal. it's a user-friendly command-line source control tool designed to streamline your version control workflow. It empowers you to manage your code efficiently and collaboratively, directly from the terminal.
 
+![Screenshot](..%2F..%2F..%2FPictures%2FScreenshot_2024-04-29_21_58_44.png))
 ## Features:
 
 - **Intuitive Commands**: Manage repositories with ease using simple commands.
@@ -45,6 +46,56 @@ Welcome to CLSC, your command-line source control tool! CLSC is designed to simp
      -p , --push           Update remote refs along with associated objects
      --version             show program's version number and exit
      -v , --verbose        displays more message
-     -s , -silence         displays limited messages
+     -s , -silence         displays limited messages**
 
+# Contributing
 
+We welcome contributions from the community to make CLSC even better. Whether you want to fix a bug, add a new feature, or improve documentation, your contributions are valuable. Follow these steps to contribute:
+
+**Fork the Repository**: Fork the CLSC repository on GitHub to your own account.
+
+**Clone the Repository**: Clone your forked repository to your local machine using Git. This allows you to make changes locally.
+   ```bash
+   git clone https://github.com/Tigo-cmd/CLI_Source_Control.git
+ ```
+**Create a Branch**: Create a new branch for your changes. Choose a descriptive name for the branch that summarizes the purpose of your changes.
+
+   ```bash
+
+   git checkout -b feature-branch
+   ```
+
+**Make Changes**: Make your desired changes to the codebase. Ensure that your changes adhere to the project's coding conventions and guidelines.
+
+**Test Your Changes**: Test your changes locally to ensure they work as expected and do not introduce any regressions.
+
+**Commit Your Changes**: Once you're satisfied with your changes, commit them to your local branch with a clear and descriptive commit message.
+
+   ```bash
+
+git add .
+git commit -m "Add feature XYZ"
+```
+
+**Push Changes**: Push your changes to your forked repository on GitHub.
+
+   ```bash
+
+    git push origin feature-branch
+   ```
+**Submit a Pull Request**: Go to the GitHub page of your forked repository and submit a pull request (PR) from your feature branch to the main repository's main branch. Provide a detailed description of your changes in the pull request.
+
+**Review and Iterate**: Your pull request will be reviewed by the project maintainers. Be responsive to any feedback or requests for changes. Iterate on your changes as needed until they are ready to be merged.
+
+# License
+
+CLSC is distributed under the MIT License. This means that you are free to use, modify, and distribute the software for any purpose.
+
+# Contact Information
+
+If you have any questions, feedback, or encounter issues with CLSC, please don't hesitate to reach out. You can contact the project maintainers through the following channels:
+
+**GitHub Issues**: Report bugs or request features by opening an issue on the GitHub repository.
+Email: Reach out via email at emmanuelsticx6@gmail.com.
+
+We value your input and appreciate your interest in contributing to CLSC. Thank you for your support!
