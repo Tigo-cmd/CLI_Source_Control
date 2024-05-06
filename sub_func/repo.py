@@ -69,5 +69,4 @@ class Git:
 
     def git_push(self):
         """Update remote refs along with associated objects"""
-        pushed = subprocess.run(["git", "push"])
-        print(pushed.stdout)
+        subprocess.run(["git", "push"])
