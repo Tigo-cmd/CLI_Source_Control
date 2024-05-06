@@ -12,10 +12,11 @@ def source_control():
     source = ArgumentParser(description="Command Line Source Control", prog="SC")
     source.add_argument('-t', '--touch', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-t+', '--function', metavar="filename", nargs='+', help="creates files")
-    source.add_argument('-a', '--add', metavar='', nargs='+', help="add changes to the git", default="")
+    source.add_argument('-a', '--add', metavar='', nargs='+', help="add changes to the git")
     source.add_argument('-c', '--commit', metavar='', help="commits changes to the git",
                         action="store_const", const="New Commit")
-    source.add_argument('-p', '--push', metavar='', help="Update remote refs along with associated objects")
+    source.add_argument('-p', '--push', metavar='', help="Update remote refs along with associated objects",
+                        action="store_const", const="pushed")
     source.add_argument('--version', action='version', version="SC 1.0")
     source_group = source.add_mutually_exclusive_group()
     source_group.add_argument('-v', '--verbose', metavar="", help="displays more message")
@@ -35,12 +36,8 @@ def source_control():
 
     # uses the -a switch to add files to git
     if args.add:
-        track = []
-        for i in sys.argv[1:]:
-            if i == "-a":
-                continue
-            elif sys.argv[-3] == ".":
-                main_entr.git_add(i)
+        for i in args.add:
+            main_entr.git_add(i)  # calls the git add function
 
     # handles the git commit got tracked changes
     if args.commit:
@@ -64,7 +61,7 @@ def main():
     if main_entr.is_git():
         if main_entr.is_git_repo():
             source_control()
-            print(main_entr)
+            # print(main_entr)
     else:
         print("Error Coming soon")
 
