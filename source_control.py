@@ -13,8 +13,8 @@ def source_control():
     source.add_argument('-t', '--touch', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-t+', '--function', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-a', '--add', metavar='', nargs='+', help="add changes to the git")
-    source.add_argument('-c', '--commit', metavar='', help="commits changes to the git",
-                        action="store_const", const="New Commit")
+    source.add_argument('-c', '--commit', metavar='', help="commits changes to the git")
+    # action="store_const", const="New Commit")
     source.add_argument('-p', '--push', metavar='', help="Update remote refs along with associated objects",
                         action="store_const", const="pushed")
     source.add_argument('--version', action='version', version="SC 1.0")
@@ -42,11 +42,14 @@ def source_control():
     # handles the git commit got tracked changes
     if args.commit:
         if args.add:
-            msg = input("commit message: ")
-            if msg == "":
-                main_entr.git_commit(args.commit)
+            if len(args.commit) == 0:
+                msg = input("commit message: ")
+                if msg == "":
+                    main_entr.git_commit(args.commit)
+                else:
+                    main_entr.git_commit(msg)
             else:
-                main_entr.git_commit(msg)
+                main_entr.git_commit(args.commit)
         else:
             print("run SC -a to add files before commit")
 
