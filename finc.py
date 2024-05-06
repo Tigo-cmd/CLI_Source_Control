@@ -2,3 +2,4 @@
 """module documentation"""
 
 def laugh():
+    print("hahahahahaha!!")
