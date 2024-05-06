@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from sub_func.repo import Git
-from sub_func.create_func_files import py_func, func_create
+from sub_func.create_func_files import source_code_create, file_create
 from argparse import ArgumentParser, Namespace
 import sys
 import os
@@ -26,11 +26,11 @@ def source_control():
     # handles file creation for function and normal python files
     if args.function:
         for i in args.function:  # checks the arguments passed for function and creates the files in the list
-            py_func(i)  # function that's creates the file
+            source_code_create(i)  # function that's creates the file and prototype if passed
 
     if args.touch:
         for i in args.touch:  # loops through the arguments passed and creates the files
-            func_create(i)  # function that's creates the file
+            file_create(i)  # function that's creates the file
 
     # uses the -a switch to add files to git
     if args.add:

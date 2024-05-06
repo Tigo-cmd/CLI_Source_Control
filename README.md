@@ -30,6 +30,7 @@ Welcome to CLSC, your command-line source control tool! CLSC is designed to simp
    ```bash
    $ git https://github.com/Tigo-cmd/CLI_Source_Control.git
    $ cd CLI_Source_Control
+   $ make install.sh executable (chmod +x install.sh)
    $ Run the script install.sh with sudo privileges to install ClSC on your computer
 2. **Usage**:
    ```bash
