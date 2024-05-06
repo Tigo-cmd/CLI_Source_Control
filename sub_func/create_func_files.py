@@ -4,7 +4,7 @@ import os
 # import subprocess
 
 
-def py_func(filename="", prototype=""):
+def source_code_create(filename="", prototype=""):
     """handles creating python functions files
      and setting necessary permissions
         Args:
@@ -15,19 +15,23 @@ def py_func(filename="", prototype=""):
         """checks if file exists in the current directory and overwrites when prompted"""
         overwrite = input(f"{filename} already exists Overwrite?(Y/N): ").lower()
         if 'y' in overwrite:
-            with open(filename, 'w', encoding='utf-8') as file:
-                pass
+            prototype = input(f"prototype for {filename}: ")
+            content = ["#!/usr/bin/python3\n", '"""module documentation"""\n\n', f"{prototype}\n"]
+            with open(filename, 'w', encoding='utf-8') as f:
+                # creates file and writes contents to each line of the file
+                f.writelines(content)
+            os.chmod(filename, 0o764)
         elif 'n' in overwrite:
-            exit(0);
+            pass
         else:
             print("invalid input")
-            exit(1)
+            pass
     elif filename[-3:] != '.py':  # checks if the file is a python file
         with open(filename, 'w', encoding='utf-8') as file:
             pass
         print("created an empty file")
     elif prototype == "":  # checks if the prototype was given else asks user to input
-        prototype = input("prototype: ")  # prototype is stored in the variable
+        prototype = input(f"prototype for {filename}: ")  # prototype is stored in the variable
     content = ["#!/usr/bin/python3\n", '"""module documentation"""\n\n', f"{prototype}\n"]
     with open(filename, 'w', encoding='utf-8') as f:
         # creates file and writes contents to each line of the file
@@ -35,7 +39,7 @@ def py_func(filename="", prototype=""):
     os.chmod(filename, 0o764)  # set the file permission of the file to executable
 
 
-def py_create(filename=""):
+def file_create(filename=""):
     """creates normal python file users adds codes to taste
         Args:
             filename: file to be creates by function
@@ -53,10 +57,10 @@ def py_create(filename=""):
             with open(filename, 'w', encoding='utf-8') as file:
                 pass
         elif 'n' in overwrite:
-            exit(0);
+            pass
         else:
             print("invalid input")
-            exit(1)
+            pass
     else:
         with open(filename, 'w', encoding='utf-8') as file:
             pass
@@ -77,10 +81,10 @@ def test_prototype(filename=""):
                     file.writelines(content)
                 os.chmod(filename, 0o764)
             elif 'n' in overwrite:
-                exit(0);
+                pass
             else:
                 print("invalid input")
-                exit(1)
+                pass
         with open(filename, 'w', encoding='utf-8') as file:
             file.writelines(content)
         os.chmod(filename, 0o764)

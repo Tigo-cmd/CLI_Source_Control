@@ -54,11 +54,14 @@ class Git:
     def git_add(self, *args):
         """adds files to git repo/Add file contents to the index"""
         for file in args:
-            result = subprocess.run(["git", "add", f"{file}"])
-            if result.returncode == 0:
-                print(f"added {file} to git")
+            if os.path.exists(file):
+                result = subprocess.run(["git", "add", f"{file}"])
+                if result.returncode == 0:
+                    print(f"added {file} to git")
+                else:
+                    print(f"failed to add {file} to git")
             else:
-                print(f"failed to add {file} to git")
+                print(f"{file} did not match any files")
 
     def __str__(self):
         """return successful operation with message Command Executed Successfully"""
