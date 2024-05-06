@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from sub_func.repo import Git
-from sub_func.create_func_files import py_func, py_create
+from sub_func.create_func_files import py_func, func_create
 from argparse import ArgumentParser, Namespace
 import sys
 import os
@@ -13,8 +13,8 @@ def source_control():
     source.add_argument('-t', '--touch', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-t+', '--function', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-a', '--add', metavar='', nargs='+', help="add changes to the git")
-    source.add_argument('-c', '--commit', metavar='', help="commits changes to the git")
-    # action="store_const", const="New Commit")
+    source.add_argument('-c', '--commit', metavar='', help="commits changes to the git",
+                        action="store_const", const="New Commit")
     source.add_argument('-p', '--push', metavar='', help="Update remote refs along with associated objects",
                         action="store_const", const="pushed")
     source.add_argument('--version', action='version', version="SC 1.0")
@@ -25,14 +25,12 @@ def source_control():
 
     # handles file creation for function and normal python files
     if args.function:
-        for i in range(len(sys.argv[1:])):
-            if sys.argv[i] == "-t+":  # searches for the -t+ switch and creates the next arguments
-                py_func(sys.argv[i + 1])  # function that's creates the file
+        for i in args.function:  # checks the arguments passed for function and creates the files in the list
+            py_func(i)  # function that's creates the file
 
     if args.touch:
-        for i in range(len(sys.argv[1:])):
-            if sys.argv[i] == "-t":  # searches for the -t switch and creates the next arguments
-                py_create(sys.argv[i + 1])  # function that's creates the file
+        for i in args.touch:  # loops through the arguments passed and creates the files
+            func_create(i)  # function that's creates the file
 
     # uses the -a switch to add files to git
     if args.add:
@@ -64,7 +62,7 @@ def main():
     if main_entr.is_git():
         if main_entr.is_git_repo():
             source_control()
-            # print(main_entr)
+            print(main_entr)
     else:
         print("Error Coming soon")
 
