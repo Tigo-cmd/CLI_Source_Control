@@ -3,3 +3,6 @@
 
 def laugh():
     print("hahahahahaha!!")
+
+
+laugh()
