@@ -1,5 +1,8 @@
 """this module handles creation of python files for alx students>>>
-    creates files append function if needed"""
+    creates files append function if needed
+
+written by Nwali Ugonna Emmanuel (Emmanuel Tigo)
+    """
 import os
 # import subprocess
 
