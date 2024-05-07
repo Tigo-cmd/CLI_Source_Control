@@ -1,4 +1,34 @@
 #!/usr/bin/python3
+"""sc source_control main file
+####################################################################################################################
+usage: SC [-h] [-t filename [filename ...]]
+          [-t+ filename [filename ...]] [-a  [...]] [-c ] [-p]
+          [--version] [-v ]
+
+Command Line Source Control
+
+positional arguments:
+  status                displays git status messages
+
+options:
+  -h, --help            show this help message and exit
+  -t filename [filename ...], --touch filename [filename ...]
+                        creates files
+  -t+ filename [filename ...], --function filename [filename ...]
+                        creates files
+  -a  [ ...], --add  [ ...]
+                        add changes to the git
+  -c [], --commit []    commits changes to the git
+  -p, --push            Update remote refs along with associated
+                        objects
+  --version             show program's version number and exit
+  -v , --verbose        displays more message
+###################################################################################################################
+
+Written By Nwali Ugonna Emmanuel (Emmanuel Tigo)
+"""
+
+
 from sub_func.repo import Git
 from sub_func.create_func_files import source_code_create, file_create
 from argparse import ArgumentParser, Namespace
@@ -9,18 +39,19 @@ main_entr = Git()
 
 
 def source_control():
+    """Handles the command line interface interaction utilizing the Argparse module"""
     source = ArgumentParser(description="Command Line Source Control", prog="SC")
     source.add_argument('-t', '--touch', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-t+', '--function', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-a', '--add', metavar='', nargs='+', help="add changes to the git")
-    source.add_argument('-c', '--commit', metavar='', help="commits changes to the git",
-                        action="store_const", const="New Commit")
+    source.add_argument('-c', '--commit', metavar='', nargs='?', help="commits changes to the git",
+                        const="New Commit")
     source.add_argument('-p', '--push', metavar='', help="Update remote refs along with associated objects",
                         action="store_const", const="pushed")
     source.add_argument('--version', action='version', version="SC 1.0")
     source_group = source.add_mutually_exclusive_group()
     source_group.add_argument('-v', '--verbose', metavar="", help="displays more message")
-    source_group.add_argument('-s', '-silence', metavar="", help="displays limited messages")
+    source.add_argument('status', help="displays git status messages", action="store_const", const="")
     args: Namespace = source.parse_args()
 
     # handles file creation for function and normal python files
@@ -38,18 +69,18 @@ def source_control():
             main_entr.git_add(i)  # calls the git add function
 
     # handles the git commit got tracked changes
-    if args.commit:
-        if args.add:
-            if len(args.commit) == 0:
-                msg = input("commit message: ")
+    if args.commit:  # checks if the -c switch is passed to the command line
+        if args.add:  # checks if -a optional argument is passed
+            if args.commit:
+                msg = input("commit message: ")  # asks user for commit message and commit changes
                 if msg == "":
-                    main_entr.git_commit(args.commit)
+                    main_entr.git_commit()  # send default commit message if user passes no message whe prompted
                 else:
                     main_entr.git_commit(msg)
             else:
-                main_entr.git_commit(args.commit)
+                main_entr.git_commit(str(args.commit))
         else:
-            print("run SC -a to add files before commit")
+            print("run SC -a ('filenames') to add files before commit")
 
     # pushes changes to git
     if args.push:
@@ -59,10 +90,11 @@ def source_control():
 
 #  main entry of the code, runs all functionalities
 def main():
-    if main_entr.is_git():
-        if main_entr.is_git_repo():
-            source_control()
-            print(main_entr)
+    """main function calls all necessary functions for functionality"""
+    if main_entr.is_git():  # returns True if git is installed in the machine else False see
+        if main_entr.is_git_repo():  # checks if the current repo is a git repository and returns True
+            source_control()  # calls then source control function implemented above
+            print(main_entr)  # prints "program ran successfully"
     else:
         print("Error Coming soon")
 
