@@ -1,35 +1,15 @@
 #!/usr/bin/python3
 """sc source_control main file
+a simple git automation script to git your hands of stressful commit and stages
 ####################################################################################################################
-usage: SC [-h] [-t filename [filename ...]]
-          [-t+ filename [filename ...]] [-a  [...]] [-c ] [-p]
-          [--version] [-v ]
-
-Command Line Source Control
-
-positional arguments:
-  status                displays git status messages
-
-options:
-  -h, --help            show this help message and exit
-  -t filename [filename ...], --touch filename [filename ...]
-                        creates files
-  -t+ filename [filename ...], --function filename [filename ...]
-                        creates files
-  -a  [ ...], --add  [ ...]
-                        add changes to the git
-  -c [], --commit []    commits changes to the git
-  -p, --push            Update remote refs along with associated
-                        objects
-  --version             show program's version number and exit
-  -v , --verbose        displays more message
+Copyright (c) 2024 Emmanuel Tigo, All Rights Reserved
+Originally By Nwali Ugonna Emmanuel (Emmanuel Tigo)
 ###################################################################################################################
-
-Written By Nwali Ugonna Emmanuel (Emmanuel Tigo)
 """
 
 
 from sub_func.repo import Git
+from sub_func.create_py_classes import create_parent_class
 from sub_func.create_func_files import source_code_create, file_create
 from argparse import ArgumentParser, Namespace
 import sys
@@ -43,6 +23,7 @@ def source_control():
     source = ArgumentParser(description="Command Line Source Control", prog="SC")
     source.add_argument('-t', '--touch', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-t+', '--function', metavar="filename", nargs='+', help="creates files")
+    source.add_argument('-t++', '--class_create', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-a', '--add', metavar='', nargs='+', help="add changes to the git")
     source.add_argument('-c', '--commit', metavar='', nargs='?', help="commits changes to the git",
                         const="New Commit")
@@ -55,6 +36,10 @@ def source_control():
     args: Namespace = source.parse_args()
 
     # handles file creation for function and normal python files
+    if args.class_create:
+        for i in args.class_create:
+            create_parent_class(i)  # create python class files
+
     if args.function:
         for i in args.function:  # checks the arguments passed for function and creates the files in the list
             source_code_create(i)  # function that's creates the file and prototype if passed
