@@ -9,6 +9,7 @@ Originally By Nwali Ugonna Emmanuel (Emmanuel Tigo)
 
 from sub_func.repo import Git
 from sub_func.create_py_classes import create_parent_class
+from sub_func.create_package import create_package
 from sub_func.create_func_files import source_code_create, file_create
 from argparse import ArgumentParser, Namespace
 import sys
@@ -22,6 +23,7 @@ def main():
     """main function calls all necessary functions for functionality"""
     """Handles the command line interface interaction utilizing the Argparse module"""
     source = ArgumentParser(description="Command Line Source Control", prog="SC")
+    source.add_argument('-d', '--mkpkg', metavar="package_dir", nargs='+', help="creates packages with init files")
     source.add_argument('-t', '--touch', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-t+', '--function', metavar="filename", nargs='+', help="creates files")
     source.add_argument('-t++', '--class_create', metavar="filename", nargs='+', help="creates files")
@@ -35,6 +37,11 @@ def main():
     source_group.add_argument('-v', '--verbose', metavar="", help="displays more message")
     source.add_argument('status', help="displays git status messages", action="store_const", const="")
     args: Namespace = source.parse_args()
+
+    # handles package creation
+    if args.mkpkg:
+        for i in args.mkpkg:
+            create_package(i)  # loops through args and prints
 
     # handles file creation for function and normal python files
     if args.class_create:
@@ -57,17 +64,17 @@ def main():
 
             # handles the git commit got tracked changes
             if args.commit:  # checks if the -c switch is passed to the command line
-                if args.add:  # checks if -a optional argument is passed
-                    if args.commit:
-                        msg = input("commit message: ")  # asks user for commit message and commit changes
-                        if msg == "":
-                            main_entr.git_commit()  # send default commit message if user passes no message whe prompted
-                        else:
-                            main_entr.git_commit(msg)
+                # if args.add:  # checks if -a optional argument is passed
+                if args.commit:
+                    msg = input("commit message: ")  # asks user for commit message and commit changes
+                    if msg == "":
+                        main_entr.git_commit()  # send default commit message if user passes no message whe prompted
                     else:
-                        main_entr.git_commit(str(args.commit))
+                        main_entr.git_commit(msg)
                 else:
-                    print("run SC -a ('filenames') to add files before commit")
+                    main_entr.git_commit(str(args.commit))
+                # else:
+                #     print("run SC -a ('filenames') to add files before commit")
 
             # pushes changes to git
             if args.push:
