@@ -1,5 +1,9 @@
 """this module implements the necessary functions
    for git manipulation, creating repo, committing, staging changes pushing etc.
+####################################################################################################################
+Copyright (c) 2024 Emmanuel Tigo, All Rights Reserved
+Originally By Nwali Ugonna Emmanuel (Emmanuel Tigo)
+###################################################################################################################
 """
 import sys
 import os
@@ -44,7 +48,7 @@ class Git:
             except Exception as e:
                 return e
 
-    def git_commit(self, message=f"added file"):
+    def git_commit(self, message=f"New Commit"):
         """commits changes to the git and checks if message id null and
          Record changes to the repository
         if message is null it uses
@@ -70,3 +74,7 @@ class Git:
     def git_push(self):
         """Update remote refs along with associated objects"""
         subprocess.run(["git", "push"])
+
+    def git_status(self):
+        """users can see all tracked untracked changes here in other to add etc"""
+        subprocess.run(["git", "status"])
