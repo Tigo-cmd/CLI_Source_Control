@@ -60,21 +60,20 @@ def main():
             # uses the -a switch to add files to git
             if args.add:
                 for i in args.add:
-                    main_entr.git_add(i)  # calls the git add function
-
-            # handles the git commit got tracked changes
-            if args.commit:  # checks if the -c switch is passed to the command line
-                # if args.add:  # checks if -a optional argument is passed
-                if args.commit:
-                    msg = input("commit message: ")  # asks user for commit message and commit changes
-                    if msg == "":
-                        main_entr.git_commit()  # send default commit message if user passes no message whe prompted
-                    else:
-                        main_entr.git_commit(msg)
-                else:
-                    main_entr.git_commit(str(args.commit))
-                # else:
-                #     print("run SC -a ('filenames') to add files before commit")
+                    main_entr.git_add(i) # calls the git add function
+                # handles the git commit got tracked changes
+                    if args.commit:  # checks if the -c switch is passed to the command line
+                        # if args.add:  # checks if -a optional argument is passed
+                        if args.commit:
+                            msg = input("commit message: ")  # asks user for commit message and commit changes
+                            if msg == "":
+                                main_entr.git_commit()  # send default commit message if user passes no message whe prompted
+                            else:
+                                main_entr.git_commit(msg)
+                        else:
+                            main_entr.git_commit(str(args.commit))
+                        # else:
+                        #     print("run SC -a ('filenames') to add files before commit")
 
             # pushes changes to git
             if args.push:
