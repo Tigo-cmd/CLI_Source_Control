@@ -10,7 +10,6 @@ import os
 # import sys
 
 
-
 def is_exists(filename="", content=[]):
     if content is None:
         content = []
