@@ -1,4 +1,11 @@
-"""this module handles package creation for python"""
+"""this module handles package creation for python
+
+
+####################################################################################################################
+Copyright (c) 2024 Emmanuel Tigo, All Rights Reserved
+Originally By Nwali Ugonna Emmanuel (Emmanuel Tigo)
+###################################################################################################################
+"""
 
 import os
 
