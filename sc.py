@@ -60,7 +60,7 @@ def main():
             # uses the -a switch to add files to git
             if args.add:
                 for i in args.add:
-                    main_entr.git_add(i) # calls the git add function
+                    main_entr.git_add(i)  # calls the git add function
                 # handles the git commit got tracked changes
                     if args.commit:  # checks if the -c switch is passed to the command line
                         # if args.add:  # checks if -a optional argument is passed
