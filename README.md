@@ -106,7 +106,7 @@ CLSC is distributed under the MIT License. This means that you are free to use, 
 If you have any questions, or feedback, or encounter issues with CLSC, please don't hesitate to reach out. You can contact the project maintainers through the following channels:
 
 **GitHub Issues**: Report bugs or request features by opening an issue on the GitHub repository.
-Email: Reach out via email at [EmmanuelTigo](emmanuelsticx6@gmail.com)
+Email: Reach out via email at [EmmanuelTigo](www.emmanuelsticx6@gmail.com)
 
 We value your input and appreciate your interest in contributing to CLSC. Thank you for your support!
 
