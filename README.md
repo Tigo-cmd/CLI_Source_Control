@@ -8,7 +8,7 @@ Welcome to CLSC, your command-line source control tool! CLSC is designed to simp
 - **Efficient Workflow**: Quickly commit changes, switch branches, and merge branches seamlessly.
 - **Lightweight**: CLSC is designed to be fast and resource-efficient.
 - **Cross-Platform**: Works smoothly on Windows, macOS, and Linux.
--- **Staging and Committing**: Stage specific files for inclusion in a commit and create meaningful commit messages.
+-- **Staging and Committing**: Stage-specific files for inclusion in a commit and create meaningful commit messages.
 -- **Lightweight and Efficient**: Operates efficiently from the command line, ideal for developers who prefer a streamlined experience.
 
 -- offers a comprehensive set of commands for all your source control needs. Here's a quick overview:
@@ -103,11 +103,11 @@ CLSC is distributed under the MIT License. This means that you are free to use, 
 
 # Contact Information
 
-If you have any questions, feedback, or encounter issues with CLSC, please don't hesitate to reach out. You can contact the project maintainers through the following channels:
+If you have any questions, or feedback, or encounter issues with CLSC, please don't hesitate to reach out. You can contact the project maintainers through the following channels:
 
 **GitHub Issues**: Report bugs or request features by opening an issue on the GitHub repository.
-Email: Reach out via email at [EmmanuelTigo](emmanuelsticx6@gmail.com)
+Email: Reach out via email at [EmmanuelTigo](www.emmanuelsticx6@gmail.com)
 
 We value your input and appreciate your interest in contributing to CLSC. Thank you for your support!
 
-For more hints on how to use the tool visit [CLSC Wiki](https://github.com/Tigo-cmd/CLI_Source_Control/wiki/CLSC-intoduction-and-usage)
+For more Documentation on how to use the tool visit [CLSC Wiki](https://github.com/Tigo-cmd/CLI_Source_Control/wiki/CLSC-intoduction-and-usage)
