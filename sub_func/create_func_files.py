@@ -22,13 +22,11 @@ def is_exists(filename="", content=[]):
             with open(filename, 'w', encoding='utf-8') as f:
                 # creates file and writes contents to each line of the file
                 f.writelines(content)
-                f.writelines(prototype)
             os.chmod(filename, 0o764)
         elif 'n' in overwrite:
             pass
         else:
             print("invalid input")
-            pass
     else:
         prototype = input(f"prototype for {filename}: ")
         content.append(f"{prototype}\n")
