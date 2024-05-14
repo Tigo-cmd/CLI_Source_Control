@@ -1,7 +1,7 @@
 **# Command-Line Source Control (CLSC)
 Welcome to CLSC, your command-line source control tool! CLSC is designed to simplify the management of your project's source code directly from your terminal. it's a user-friendly command-line source control tool designed to streamline your version control workflow. It empowers you to manage your code efficiently and collaboratively, directly from the terminal.
 
-![Demo](Screenshot_2024-04-29_21_58_44.png)![Screenshot](..%2F..%2F..%2FPictures%2FScreenshot_2024-04-29_21![Screenshot_2024-04-29_21_58_44.png](Screenshot_2024-04-29_21_58_44.png)_58_44.png))
+![Demo](Screenshot_2024-04-29_21_58_44.png)
 ## Features:
 
 - **Intuitive Commands**: Manage repositories with ease using simple commands.
@@ -34,20 +34,29 @@ Welcome to CLSC, your command-line source control tool! CLSC is designed to simp
    $ Run the script install.sh with sudo privileges to install ClSC on your computer
 2. **Usage**:
    ```bash
-   usage: SC [-h] [-t filename [filename ...]] [-t+ filename [filename ...]] [-a  [...]] [-c] [-p] [--version] [-v  | -s ]
+   usage: SC [-h] [-d package_dir [package_dir ...]]
+          [-t filename [filename ...]] [-t+ filename [filename ...]]
+          [-t++ filename [filename ...]] [-a  [...]] [-c ] [-p]
+          [--version] [-v ]
+
    options:
      -h, --help            show this help message and exit
+     -d package_dir [package_dir ...], --mkpkg package_dir [package_dir ...]
+                           creates packages with init files
      -t filename [filename ...], --touch filename [filename ...]
                            creates files
      -t+ filename [filename ...], --function filename [filename ...]
                            creates files
+     -t++ filename [filename ...], --class_create filename [filename ...]
+                           creates files
      -a  [ ...], --add  [ ...]
                            add changes to the git
-     -c, --commit          commits changes to the git
-     -p , --push           Update remote refs along with associated objects
+     -c [], --commit []    commits changes to the git
+     -p, --push            Update remote refs along with associated
+                           objects
      --version             show program's version number and exit
      -v , --verbose        displays more message
-     -s , -silence         displays limited messages**
+
 
 # Contributing
 
@@ -97,6 +106,8 @@ CLSC is distributed under the MIT License. This means that you are free to use, 
 If you have any questions, feedback, or encounter issues with CLSC, please don't hesitate to reach out. You can contact the project maintainers through the following channels:
 
 **GitHub Issues**: Report bugs or request features by opening an issue on the GitHub repository.
-Email: Reach out via email at emmanuelsticx6@gmail.com.
+Email: Reach out via email at [EmmanuelTigo](emmanuelsticx6@gmail.com)
 
 We value your input and appreciate your interest in contributing to CLSC. Thank you for your support!
+
+For more hints on how to use the tool visit [CLSC Wiki](https://github.com/Tigo-cmd/CLI_Source_Control/wiki/CLSC-intoduction-and-usage)
