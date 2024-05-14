@@ -18,9 +18,11 @@ def is_exists(filename="", content=[]):
         overwrite = input(f"{filename} already exists Overwrite?(Y/N): ").lower()
         if 'y' in overwrite:
             prototype = input(f"prototype for {filename}: ")
+            content.append(f"{prototype}\n")
             with open(filename, 'w', encoding='utf-8') as f:
                 # creates file and writes contents to each line of the file
                 f.writelines(content)
+                f.writelines(prototype)
             os.chmod(filename, 0o764)
         elif 'n' in overwrite:
             pass
@@ -29,6 +31,7 @@ def is_exists(filename="", content=[]):
             pass
     else:
         prototype = input(f"prototype for {filename}: ")
+        content.append(f"{prototype}\n")
         with open(filename, 'w', encoding='utf-8') as f:
             # creates file and writes contents to each line of the file
             f.writelines(content)
@@ -64,6 +67,7 @@ def create_header_files(filename=""):
         with open(header, 'w', encoding='utf-8') as file:
             file.writelines(content)
     return header
+
 
 def create_c_main_files(filename=""):
     """creates C main files
@@ -116,10 +120,10 @@ def create_cfile(filename="", prototype=""):
     update_header_file(prototype)
 
 
-def create_pyfile(filename="", prototype=""):
+def create_pyfile(filename=""):
     """function for creating python function files"""
 
-    content = ["#!/usr/bin/python3\n", '"""module documentation"""\n\n', f"{prototype}\n"]
+    content = ["#!/usr/bin/python3\n", '"""module documentation"""\n\n']
     is_exists(filename, content)  # class the function and creates
 
 
