@@ -1,7 +1,7 @@
 **# Command-Line Source Control (CLSC)
 Welcome to CLSC, your command-line source control tool! CLSC is designed to simplify the management of your project's source code directly from your terminal. it's a user-friendly command-line source control tool designed to streamline your version control workflow. It empowers you to manage your code efficiently and collaboratively, directly from the terminal.
 
-![Demo](Screenshot_2024-04-29_21_58_44.png)
+![Demo](images/usage.png)
 ## Features:
 
 - **Intuitive Commands**: Manage repositories with ease using simple commands.
